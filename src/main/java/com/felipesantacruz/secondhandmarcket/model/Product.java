@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 
 @Entity
 public class Product
@@ -12,14 +15,19 @@ public class Product
 	@GeneratedValue
 	private Long id;
 	
+	@NotBlank(message = "Name must contain any character.")
 	private String name;
+	
+	@PositiveOrZero(message = "Price shouldn't be negative.")
 	private Float price;
+	
 	private String image;
 	
 	@ManyToOne
 	private Purchase purchase;
 	
 	@ManyToOne
+	@NotNull
 	private User owner;
 
 	public Product() { }

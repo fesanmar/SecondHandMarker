@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -26,6 +27,7 @@ public class Purchase
 	private Date date;
 	
 	@ManyToOne
+	@NotNull(message = "There mus be a purchaser.")
 	private User purchaser;
 
 	public Purchase() { }

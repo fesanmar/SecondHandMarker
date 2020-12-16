@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -20,7 +23,9 @@ public class User
 	@GeneratedValue
 	private Long id;
 	
+	@NotBlank(message = "Name must contain any character.")
 	private String name;
+	@NotBlank(message = "Surname must contain any character.")
 	private String surname;
 	private String avatar;
 	
@@ -28,7 +33,9 @@ public class User
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date signUpDate;
 	
+	@Email(message = "Email should be valid.")
 	private String email;
+	@NotNull
 	private String password;
 	
 	public User() { }
