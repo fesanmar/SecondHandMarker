@@ -2,6 +2,7 @@ package com.felipesantacruz.secondhandmarcket.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,8 @@ import javax.validation.constraints.NotNull;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.felipesantacruz.secondhandmarcket.validation.UniqueMail;
+
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 public class User
@@ -25,6 +28,7 @@ public class User
 	
 	@NotBlank(message = "Name must contain any character.")
 	private String name;
+	
 	@NotBlank(message = "Surname must contain any character.")
 	private String surname;
 	private String avatar;
@@ -34,6 +38,8 @@ public class User
 	private Date signUpDate;
 	
 	@Email(message = "Email should be valid.")
+	@UniqueMail
+	@Column(unique = true)
 	private String email;
 	@NotNull
 	private String password;
