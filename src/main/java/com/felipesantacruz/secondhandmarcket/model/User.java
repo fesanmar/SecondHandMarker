@@ -16,8 +16,6 @@ import javax.validation.constraints.NotNull;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.felipesantacruz.secondhandmarcket.validation.UniqueMail;
-
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 public class User
@@ -38,9 +36,9 @@ public class User
 	private Date signUpDate;
 	
 	@Email(message = "Email should be valid.")
-	@UniqueMail
 	@Column(unique = true)
 	private String email;
+	
 	@NotNull
 	private String password;
 	
