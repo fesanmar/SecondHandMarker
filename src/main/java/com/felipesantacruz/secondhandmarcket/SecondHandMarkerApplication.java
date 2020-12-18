@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.felipesantacruz.secondhandmarcket.model.User;
+import com.felipesantacruz.secondhandmarcket.model.MarketUser;
 import com.felipesantacruz.secondhandmarcket.repository.ProductRepository;
 import com.felipesantacruz.secondhandmarcket.service.UserService;
 
@@ -29,7 +29,7 @@ public class SecondHandMarkerApplication
 		return args ->
 		{
 
-			User user = new User("Luis Miguel", "López Magaña", null, "luismi.lopez@openwebinars.net", "luismi");
+			MarketUser user = new MarketUser("Luis Miguel", "López Magaña", null, "luismi.lopez@openwebinars.net", "luismi");
 			user = userService.resgiter(user);
 
 //			productRepository.saveAll(Arrays.asList(new Product("Bicicleta de montaña", 100.0f,

@@ -28,11 +28,11 @@ public class Product
 	
 	@ManyToOne
 	@NotNull
-	private User owner;
+	private MarketUser owner;
 
 	public Product() { }
 
-	public Product(String name, Float price, String image, User owner)
+	public Product(String name, Float price, String image, MarketUser owner)
 	{
 		this.name = name;
 		this.price = price;
@@ -90,12 +90,12 @@ public class Product
 		this.purchase = purchase;
 	}
 
-	public User getOwner()
+	public MarketUser getOwner()
 	{
 		return owner;
 	}
 
-	public void setOwner(User owner)
+	public void setOwner(MarketUser owner)
 	{
 		this.owner = owner;
 	}

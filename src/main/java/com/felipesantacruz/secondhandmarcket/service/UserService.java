@@ -3,7 +3,7 @@ package com.felipesantacruz.secondhandmarcket.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.felipesantacruz.secondhandmarcket.model.User;
+import com.felipesantacruz.secondhandmarcket.model.MarketUser;
 import com.felipesantacruz.secondhandmarcket.repository.UserRepository;
 
 @Service
@@ -17,7 +17,7 @@ public class UserService
 		return userRepo.findByEmail(email) != null;
 	}
 
-	public User resgiter(User user)
+	public MarketUser resgiter(MarketUser user)
 	{
 		return userRepo.save(user);
 	}

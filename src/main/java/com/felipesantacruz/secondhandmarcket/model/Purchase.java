@@ -28,11 +28,11 @@ public class Purchase
 	
 	@ManyToOne
 	@NotNull(message = "There mus be a purchaser.")
-	private User purchaser;
+	private MarketUser purchaser;
 
 	public Purchase() { }
 
-	public Purchase(User purchaser)
+	public Purchase(MarketUser purchaser)
 	{
 		this.purchaser = purchaser;
 	}
@@ -57,12 +57,12 @@ public class Purchase
 		this.date = date;
 	}
 
-	public User getPurchaser()
+	public MarketUser getPurchaser()
 	{
 		return purchaser;
 	}
 
-	public void setPurchaser(User purchaser)
+	public void setPurchaser(MarketUser purchaser)
 	{
 		this.purchaser = purchaser;
 	}

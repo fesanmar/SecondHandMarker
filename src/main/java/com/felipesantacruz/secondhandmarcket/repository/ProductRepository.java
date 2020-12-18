@@ -6,11 +6,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.felipesantacruz.secondhandmarcket.model.Product;
 import com.felipesantacruz.secondhandmarcket.model.Purchase;
-import com.felipesantacruz.secondhandmarcket.model.User;
+import com.felipesantacruz.secondhandmarcket.model.MarketUser;
 
 public interface ProductRepository extends JpaRepository<Product, Long>
 {
-	List<Product> findByOwner(User owner);
+	List<Product> findByOwner(MarketUser owner);
 	
 	List<Product> findByPurchase(Purchase purchase);
 	
@@ -27,6 +27,6 @@ public interface ProductRepository extends JpaRepository<Product, Long>
 	List<Product> findByNameContainsIgnoreCaseAndPurchaseIsNull(String name);
 	
 	
-	List<Product> findByNameContainsIgnoreCaseAndOwner(String name, User owner);
+	List<Product> findByNameContainsIgnoreCaseAndOwner(String name, MarketUser owner);
 	
 }

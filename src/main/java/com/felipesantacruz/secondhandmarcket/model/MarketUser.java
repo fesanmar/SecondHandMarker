@@ -18,7 +18,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-public class User
+public class MarketUser
 {
 	@Id
 	@GeneratedValue
@@ -42,11 +42,11 @@ public class User
 	@NotNull
 	private String password;
 	
-	public User() { }
+	public MarketUser() { }
 	
 	
 
-	public User(String name, String surname, String avatar, String email, String password)
+	public MarketUser(String name, String surname, String avatar, String email, String password)
 	{
 		this.name = name;
 		this.surname = surname;
@@ -151,7 +151,7 @@ public class User
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		MarketUser other = (MarketUser) obj;
 		if (avatar == null)
 		{
 			if (other.avatar != null)

@@ -2,9 +2,9 @@ package com.felipesantacruz.secondhandmarcket.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.felipesantacruz.secondhandmarcket.model.User;
+import com.felipesantacruz.secondhandmarcket.model.MarketUser;
 
-public interface UserRepository extends JpaRepository<User, Long>
+public interface UserRepository extends JpaRepository<MarketUser, Long>
 {
-	User findByEmail(String email);
+	MarketUser findByEmail(String email);
 }
