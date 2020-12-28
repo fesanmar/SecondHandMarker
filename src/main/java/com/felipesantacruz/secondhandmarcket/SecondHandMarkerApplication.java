@@ -3,31 +3,26 @@ package com.felipesantacruz.secondhandmarcket;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 
 import com.felipesantacruz.secondhandmarcket.model.MarketUser;
 import com.felipesantacruz.secondhandmarcket.model.Product;
-import com.felipesantacruz.secondhandmarcket.repository.ProductRepository;
 import com.felipesantacruz.secondhandmarcket.service.MarketUserService;
 import com.felipesantacruz.secondhandmarcket.service.ProductService;
 
 @SpringBootApplication
 public class SecondHandMarkerApplication
 {
-
-
-	@Autowired
-	
 	
 	public static void main(String[] args)
 	{
 		SpringApplication.run(SecondHandMarkerApplication.class, args);
 	}
-
+	
 	@Bean
 	public CommandLineRunner initData(MarketUserService userService, ProductService productService)
 	{
