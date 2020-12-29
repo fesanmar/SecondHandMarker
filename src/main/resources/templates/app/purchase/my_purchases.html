@@ -85,7 +85,7 @@
 				<tbody>
 					<tr th:each="compra : ${mis_compras}">
 						<td><span th:text="${compra.id}">1</span>
-						<td><span th:text="${#dates.format(compra.fechaCompra,'dd/MMM/yyyy HH:mm')}">10/10/2018 10:10</span></td>
+						<td><span th:text="${#dates.format(compra.date,'dd/MMM/yyyy HH:mm')}">10/10/2018 10:10</span></td>
 						<td><a th:href="@{/app/compra/factura/{id}(id=${compra.id})}" class="btn btn-info">Ver factura</a></td>
 					</tr>
 				</tbody>
