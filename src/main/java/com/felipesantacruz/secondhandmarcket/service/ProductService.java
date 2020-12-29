@@ -9,12 +9,16 @@ import com.felipesantacruz.secondhandmarcket.model.MarketUser;
 import com.felipesantacruz.secondhandmarcket.model.Product;
 import com.felipesantacruz.secondhandmarcket.model.Purchase;
 import com.felipesantacruz.secondhandmarcket.repository.ProductRepository;
+import com.felipesantacruz.secondhandmarcket.upload.StorageService;
 
 @Service
 public class ProductService
 {
 	@Autowired
 	private ProductRepository repository;
+	
+	@Autowired
+	private StorageService storageService;
 	
 	public Product insert(Product p)
 	{
@@ -23,12 +27,24 @@ public class ProductService
 	
 	public void delete(long id)
 	{
-		repository.deleteById(id);
+		Product p = findById(id);
+		if (p != null)
+		{
+			deleteImage(p);
+			repository.deleteById(id);
+		}
 	}
 	
 	public void delete(Product p)
 	{
+		deleteImage(p);
 		repository.delete(p);
+	}
+
+	private void deleteImage(Product p)
+	{
+		if (p.hasImage())
+			storageService.delete(p.getImage());
 	}
 	
 	public Product edit(Product p)

@@ -12,6 +12,7 @@ import com.felipesantacruz.secondhandmarcket.model.MarketUser;
 import com.felipesantacruz.secondhandmarcket.model.Product;
 import com.felipesantacruz.secondhandmarcket.service.MarketUserService;
 import com.felipesantacruz.secondhandmarcket.service.ProductService;
+import com.felipesantacruz.secondhandmarcket.upload.StorageService;
 
 @SpringBootApplication
 public class SecondHandMarkerApplication
@@ -50,6 +51,16 @@ public class SecondHandMarkerApplication
 							user2));
 			products.forEach(productService::insert);
 
+		};
+	}
+	
+	@Bean
+	public CommandLineRunner init(StorageService storageService)
+	{
+		return (args) -> 
+		{
+			storageService.deleteAll();
+			storageService.init();
 		};
 	}
 }

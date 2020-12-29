@@ -39,6 +39,11 @@ public class Product
 		this.image = image;
 		this.owner = owner;
 	}
+	
+	public boolean hasImage()
+	{
+		return image != null && !image.isEmpty();
+	}
 
 	public Long getId()
 	{
